@@ -107,6 +107,11 @@ func Test純虚数の文字列表記を確認するテスト(t *testing.T) {
 			args: args{-3},
 			want: "-3i",
 		},
+		{
+			name: "虚部に2を持つ純虚数の文字列表記が2iになること",
+			args: args{2},
+			want: "2i",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
