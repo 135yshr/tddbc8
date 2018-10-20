@@ -5,5 +5,5 @@ type PurelyImaginaryNumber struct {
 }
 
 func NewPurelyImaginaryNumber(i int) *PurelyImaginaryNumber {
-	return &PurelyImaginaryNumber{3}
+	return &PurelyImaginaryNumber{i}
 }
