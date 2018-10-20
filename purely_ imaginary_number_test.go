@@ -66,10 +66,15 @@ func Test純虚数の文字列表記を確認するテスト(t *testing.T) {
 			args: args{3},
 			want: "3i",
 		},
+		{
+			name: "虚部に10を持つ純虚数の文字列表記が10iになること",
+			args: args{10},
+			want: "10i",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			sut, _ := NewPurelyImaginaryNumber(3)
+			sut, _ := NewPurelyImaginaryNumber(tt.args.i)
 			if sut.Notation() != tt.want {
 				t.Fatalf("文字列表記が期待値と一致していない expected=%s actual=%s", tt.want, sut.Notation())
 			}

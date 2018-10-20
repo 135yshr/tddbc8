@@ -1,6 +1,9 @@
 package tddbc8
 
-import "errors"
+import (
+	"errors"
+	"strconv"
+)
 
 type PurelyImaginaryNumber struct {
 	imaginaryPart int
@@ -14,5 +17,5 @@ func NewPurelyImaginaryNumber(i int) (*PurelyImaginaryNumber, error) {
 }
 
 func (p *PurelyImaginaryNumber) Notation() string {
-	return "3i"
+	return strconv.Itoa(p.imaginaryPart) + "i"
 }
