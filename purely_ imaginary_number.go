@@ -12,3 +12,7 @@ func NewPurelyImaginaryNumber(i int) (*PurelyImaginaryNumber, error) {
 	}
 	return &PurelyImaginaryNumber{i}, nil
 }
+
+func (p *PurelyImaginaryNumber) Notation() string {
+	return "3i"
+}

@@ -50,3 +50,29 @@ func Test純虚数が生成されることを確認するテスト(t *testing.T)
 		})
 	}
 }
+
+func Test純虚数の文字列表記を確認するテスト(t *testing.T) {
+	type args struct {
+		i int
+	}
+	tests := []struct {
+		name    string
+		args    args
+		want    string
+		wantErr bool
+	}{
+		{
+			name: "虚部に3を持つ純虚数の文字列表記が3iになること",
+			args: args{3},
+			want: "3i",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			sut, _ := NewPurelyImaginaryNumber(3)
+			if sut.Notation() != tt.want {
+				t.Fatalf("文字列表記が期待値と一致していない expected=%s actual=%s", tt.want, sut.Notation())
+			}
+		})
+	}
+}
