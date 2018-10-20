@@ -127,3 +127,34 @@ func Test純虚数の文字列表記を確認するテスト(t *testing.T) {
 		})
 	}
 }
+
+func Test純虚数の同一性を確認するテスト(t *testing.T) {
+	type args struct {
+		i  int
+		ii int
+	}
+	tests := []struct {
+		name    string
+		args    args
+		want    bool
+		wantErr bool
+	}{
+		{
+			name: "虚部に３を持つ純虚数と虚部に３を持つ純虚数が同じであること",
+			args: args{
+				i:  3,
+				ii: 3,
+			},
+			want: true,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			pin1, _ := NewPurelyImaginaryNumber(tt.args.i)
+			pin2, _ := NewPurelyImaginaryNumber(tt.args.ii)
+			if reflect.DeepEqual(pin1, pin2) != tt.want {
+				t.Errorf("期待値と違う結果 expectd: %t", tt.want)
+			}
+		})
+	}
+}
