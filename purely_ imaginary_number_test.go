@@ -36,6 +36,13 @@ func Test純虚数が生成されることを確認するテスト(t *testing.T)
 			},
 			wantErr: true,
 		},
+		{
+			name: "虚部に-3を渡したときに虚部-3を持つ純虚数が生成できること",
+			args: args{
+				i: -3,
+			},
+			want: &PurelyImaginaryNumber{-3},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
