@@ -3,7 +3,10 @@ package tddbc8
 import "testing"
 
 func Test虚部に３を渡したときに虚部３を持つ純虚数が生成できること(t *testing.T) {
-	sut, _ := NewPurelyImaginaryNumber(3)
+	sut, err := NewPurelyImaginaryNumber(3)
+	if err != nil {
+		t.Fatalf("エラーが返ってきている err = %v", err)
+	}
 	if sut.imaginaryPart != 3 {
 		t.Fatalf("虚部に３を渡したときに虚部３を持つ純虚数が生成できない")
 	}

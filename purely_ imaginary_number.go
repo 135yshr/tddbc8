@@ -7,5 +7,8 @@ type PurelyImaginaryNumber struct {
 }
 
 func NewPurelyImaginaryNumber(i int) (*PurelyImaginaryNumber, error) {
-	return &PurelyImaginaryNumber{i}, errors.New("dummy")
+	if i == 0 {
+		return nil, errors.New("虚数に０を設定できません")
+	}
+	return &PurelyImaginaryNumber{i}, nil
 }
