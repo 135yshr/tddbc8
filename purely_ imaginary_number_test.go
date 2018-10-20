@@ -23,8 +23,13 @@ func Test虚部に10を渡したときに虚部10を持つ純虚数が生成で�
 }
 
 func Test虚部に0渡したときにエラーを返すこと(t *testing.T) {
-	_, err := NewPurelyImaginaryNumber(0)
+	sut, err := NewPurelyImaginaryNumber(0)
+
 	if err == nil {
 		t.Fatalf("エラーが返ってこない")
+	}
+
+	if sut != nil {
+		t.Fatalf("インスタンスが返ってきている sut = %v", sut)
 	}
 }
