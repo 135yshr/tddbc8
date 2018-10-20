@@ -17,5 +17,11 @@ func NewPurelyImaginaryNumber(i int) (*PurelyImaginaryNumber, error) {
 }
 
 func (p *PurelyImaginaryNumber) Notation() string {
+	if p.imaginaryPart == 1 {
+		return "i"
+	} else if p.imaginaryPart == (-1) {
+		return "-i"
+	}
+
 	return strconv.Itoa(p.imaginaryPart) + "i"
 }
